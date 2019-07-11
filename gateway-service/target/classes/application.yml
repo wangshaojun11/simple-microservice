@@ -1,7 +1,0 @@
-server:
-  port: 9999
-spring:
-  profiles:
-    active: fat
-  application:
-    name: gateway-service
