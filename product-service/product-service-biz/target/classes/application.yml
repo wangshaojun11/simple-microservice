@@ -1,7 +1,0 @@
-server:
-  port: 8010
-spring:
-  profiles:
-    active: fat
-  application:
-    name: product-service
