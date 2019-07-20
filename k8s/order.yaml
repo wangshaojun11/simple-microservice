@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: order
+  namespace: ms 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: ms
+      app: order
+  template:
+    metadata:
+      labels:
+        project: ms 
+        app: order
+    spec:
+      imagePullSecrets:
+      - name: registry-pull-secret
+      containers:
+      - name: order
+        image: 192.168.31.70/microservice/order:2019-07-10-21-34-08
+        imagePullPolicy: Always
+        ports:
+          - protocol: TCP
+            containerPort: 8020 
+        env:
+          - name: JAVA_OPTS
+            value: "-Xmx1g"
+        resources:
+          requests:
+            cpu: 0.5
+            memory: 256Mi
+          limits:
+            cpu: 1
+            memory: 1Gi
+        readinessProbe:
+          tcpSocket:
+            port: 8020
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8020
+          initialDelaySeconds: 60
+          periodSeconds: 10
