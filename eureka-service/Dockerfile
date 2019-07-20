@@ -1,7 +1,8 @@
 FROM java:8-jdk-alpine
-LABEL maintainer lizhenliang
+LABEL maintainer lizhenliang/www.ctnrs.com
 ENV JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF8 -Duser.timezone=GMT+08"
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN  apk add -U tzdata && \
+     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY ./target/eureka-service.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8888
