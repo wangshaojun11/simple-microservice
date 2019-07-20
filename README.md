@@ -1,6 +1,6 @@
-## 这是一个基于SpringCloud的微服务架构项目
+>## 这是一个基于SpringCloud的微服务架构项目
 
-## 部署须知
+>## 部署须知
   * 1. 导入db目录下数据库文件到自己的MySQL服务器
   * 2. 修改配置环境（xxx-service/src/main/resources/application.yml，active值决定启用环境配置文件）
   * 3. 修改连接数据库配置（xxx-service/src/main/resources/application-fat.yml）
