@@ -58,6 +58,10 @@ spec:
         env:
           - name: JAVA_OPTS
             value: "-Xmx1g"
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
         resources:
           requests:
             cpu: 0.5
