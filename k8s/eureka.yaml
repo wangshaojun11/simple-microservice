@@ -36,6 +36,7 @@ metadata:
   name: eureka
   namespace: ms 
 spec:
+  replicas: 3
   selector:
     matchLabels:
       project: ms
