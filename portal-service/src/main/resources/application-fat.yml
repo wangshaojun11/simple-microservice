@@ -3,7 +3,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://eureka-0.eureka.ms:8888/eureka
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
     register-with-eureka: true
     fetch-registry: true
 
