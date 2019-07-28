@@ -2,6 +2,6 @@ server:
   port: 8888
 spring:
   application:
-    name: legendshop-basic-eureka
+    name: eureka-server
   profiles:
-    active: dev
+    active: fat
