@@ -55,6 +55,11 @@ spec:
         ports:
           - protocol: TCP
             containerPort: 8888
+        env:
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
         resources:
           requests:
             cpu: 0.5
