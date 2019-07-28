@@ -7,8 +7,8 @@ eureka:
     hostname: 127.0.0.1
     prefer-ip-address: true
   client:
-    register-with-eureka: false
+    register-with-eureka: true
     serviceUrl:
-      defaultZone: http://127.0.0.1:${server.port}/eureka/
-    fetch-registry: false
+      defaultZone: http://eureka-0.eureka.ms:${server.port}/eureka/,http://eureka-1.eureka.ms:${server.port}/eureka/,http://eureka-2.eureka.ms:${server.port}/eureka/
+    fetch-registry: true
 
