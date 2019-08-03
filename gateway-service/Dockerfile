@@ -6,4 +6,4 @@ RUN  apk add -U tzdata && \
 COPY ./target/gateway-service.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 9999
-CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=gateway-agent -Dpinpoint.applicationName=ms-gateway $JAVA_OPTS /gateway-service.jar
+CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=${HOSTNAME} -Dpinpoint.applicationName=ms-gateway $JAVA_OPTS /gateway-service.jar
