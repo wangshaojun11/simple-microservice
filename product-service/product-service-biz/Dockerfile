@@ -6,4 +6,4 @@ RUN  apk add -U tzdata && \
 COPY ./target/product-service-biz.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8010
-CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=product-agent -Dpinpoint.applicationName=ms-product $JAVA_OPTS /product-service-biz.jar
+CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=${HOSTNAME} -Dpinpoint.applicationName=ms-product $JAVA_OPTS /product-service-biz.jar
