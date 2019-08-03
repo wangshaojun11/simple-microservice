@@ -6,4 +6,4 @@ RUN  apk add -U tzdata && \
 COPY ./target/order-service-biz.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8020
-CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=order-agent -Dpinpoint.applicationName=ms-order $JAVA_OPTS /order-service-biz.jar
+CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=${HOSTNAME} -Dpinpoint.applicationName=ms-order $JAVA_OPTS /order-service-biz.jar
