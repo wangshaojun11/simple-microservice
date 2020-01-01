@@ -1,7 +1,5 @@
-FROM java:8-jdk-alpine
-LABEL maintainer lizhenliang/www.ctnrs.com
-RUN  apk add -U tzdata && \
-     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+FROM lizhenliang/java:8-jdk-alpine
+LABEL maintainer www.ctnrs.com
 COPY ./target/portal-service.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8080
