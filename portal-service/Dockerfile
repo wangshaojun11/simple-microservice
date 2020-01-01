@@ -1,4 +1,4 @@
-FROM lizhenliang/java:8-jdk-alpine
+FROM java:8-jdk-alpine
 LABEL maintainer www.ctnrs.com
 ENV JAVA_ARGS="-Dfile.encoding=UTF8 -Duser.timezone=GMT+08"
 RUN  apk add -U tzdata && \
@@ -6,4 +6,4 @@ RUN  apk add -U tzdata && \
 COPY ./target/portal-service.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8080
-CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=$(echo $HOSTNAME | awk -F- '{print "portal-"$NF}') -Dpinpoint.applicationName=ms-protal $JAVA_OPTS $JAVA_ARGS /portal-service.jar
+CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=$(echo $HOSTNAME | awk -F- '{print "portal-"$NF}') -Dpinpoint.applicationName=ms-portal $JAVA_OPTS $JAVA_ARGS /portal-service.jar
