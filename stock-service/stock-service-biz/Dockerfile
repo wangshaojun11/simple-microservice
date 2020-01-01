@@ -6,4 +6,4 @@ RUN  apk add -U tzdata && \
 COPY ./target/stock-service-biz.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8030
-CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=${HOSTNAME} -Dpinpoint.applicationName=ms-stock $JAVA_OPTS /stock-service-biz.jar
+CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=$(echo $HOSTNAME | awk -F- '{print "stock-"$NF}') -Dpinpoint.applicationName=ms-stock $JAVA_OPTS /stock-service-biz.jar
