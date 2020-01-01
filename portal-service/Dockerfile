@@ -5,4 +5,4 @@ RUN  apk add -U tzdata && \
 COPY ./target/portal-service.jar ./
 COPY pinpoint /pinpoint
 EXPOSE 8080
-CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=${HOSTNAME} -Dpinpoint.applicationName=ms-protal /portal-service.jar
+CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-1.8.3.jar -Dpinpoint.agentId=$(echo $HOSTNAME | awk -F- '{print "portal-"$NF}') -Dpinpoint.applicationName=ms-portal /portal-service.jar
