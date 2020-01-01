@@ -1,5 +1,5 @@
 FROM lizhenliang/java:8-jdk-alpine
-LABEL maintainer lizhenliang/www.ctnrs.com
+LABEL maintainer www.ctnrs.com
 ENV JAVA_ARGS="-Dfile.encoding=UTF8 -Duser.timezone=GMT+08"
 COPY ./target/stock-service-biz.jar ./
 COPY pinpoint /pinpoint
