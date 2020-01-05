@@ -6,5 +6,3 @@
   * 3. 修改连接数据库配置（xxx-service/src/main/resources/application-fat.yml）
   * 4. 修改前端页面连接网关地址（portal-service/src/main/resources/static/js/productList.js和orderList.js）
   * 5. 服务启动顺序：eureka -> mysql -> product,stock,order -> gateway -> portal
-
-![avatar](https://github.com/lizhenliang/Shell-Python-Document/blob/master/%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F.jpg)
